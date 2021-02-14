@@ -10,7 +10,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:list-converter.newline2python"
+		"onCommand:list-converter.newline2python",
+		"onCommand:list-converter.python2newline"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -18,6 +19,10 @@
 			{
 				"command": "list-converter.newline2python",
 				"title": "Convert newlined list into python array of strings"
+			},
+			{
+				"command": "list-converter.python2newline",
+				"title": "Convert python (json) array of strings to a newline separated list"
 			}
 		]
 	},

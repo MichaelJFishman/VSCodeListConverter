@@ -34,30 +34,24 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(newline2python);
 
 
-	// const python2newline = vscode.commands.registerCommand('list-converter.python2newline', () => {
-	// 	const editor = vscode.window.activeTextEditor;
+	const python2newline = vscode.commands.registerCommand('list-converter.python2newline', () => {
+		const editor = vscode.window.activeTextEditor;
 
-	// 	if (editor) {
-	// 		const document = editor.document;
-	// 		const selection = editor.selection;
-	// 		const input_str = document.getText(selection);
-	// 		// Check that this string looks like a python array
-	// 		if input_str[0] == '[' and
-	// 		if (false) {
-	// 			vscode.window.showWarningMessage("The selected string does not look like a python array.")
-	// 		}
-	// 		else {
-	// 			const terms = input_str.replace(/\r/g, "").split("\n");
-	// 			const quoted_terms = terms.map(x => '"' + x + '"');
-	// 			const output_str = '[' + quoted_terms.join(', ') + ']';
-	// 			editor.edit(editBuilder => {
-	// 				editBuilder.replace(selection, output_str)
-	// 			});
-	// 		}
-	// 	}
-	// });
+		if (editor) {
+			const document = editor.document;
+			const selection = editor.selection;
+			const input_str = document.getText(selection);
+			// TODO Check that this string looks like a python array and fail gracefully
+			const terms = JSON.parse(input_str);
+			const output_str = terms.join("\n");
+			editor.edit(editBuilder => {
+				editBuilder.replace(selection, output_str)
+				}
+			);
+		}
+	});
 
-	// context.subscriptions.push(python2newline);
+	context.subscriptions.push(python2newline);
 
 }
 
