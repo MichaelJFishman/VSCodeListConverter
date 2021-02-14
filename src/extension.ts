@@ -14,44 +14,44 @@ export function activate(context: vscode.ExtensionContext) {
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
 
-	const newline2python = vscode.commands.registerCommand('list-converter.newline2python', () => {
+	const newline2json = vscode.commands.registerCommand('list-converter.newline2json', () => {
 		const editor = vscode.window.activeTextEditor;
 
 		if (editor) {
 			const document = editor.document;
 			const selection = editor.selection;
 
-			const input_str = document.getText(selection);
-			const terms = input_str.replace(/\r/g, "").split("\n");
-			const quoted_terms = terms.map(x => '"' + x + '"');
-			const output_str = '[' + quoted_terms.join(', ') + ']';
+			const inputStr = document.getText(selection);
+			const terms = inputStr.replace(/\r/g, "").split("\n");
+			const quotedTerms = terms.map(x => '"' + x + '"');
+			const outputStr = '[' + quotedTerms.join(', ') + ']';
 			editor.edit(editBuilder => {
-				editBuilder.replace(selection, output_str)
+				editBuilder.replace(selection, outputStr)
 			});
 		}
 	});
 
-	context.subscriptions.push(newline2python);
+	context.subscriptions.push(newline2json);
 
 
-	const python2newline = vscode.commands.registerCommand('list-converter.python2newline', () => {
+	const json2newline = vscode.commands.registerCommand('list-converter.json2newline', () => {
 		const editor = vscode.window.activeTextEditor;
 
 		if (editor) {
 			const document = editor.document;
 			const selection = editor.selection;
-			const input_str = document.getText(selection);
-			// TODO Check that this string looks like a python array and fail gracefully
-			const terms = JSON.parse(input_str);
-			const output_str = terms.join("\n");
+			const inputStr = document.getText(selection);
+			// TODO Check that this string looks like a JSON array and fail gracefully
+			const terms = JSON.parse(inputStr);
+			const outputStr = terms.join("\n");
 			editor.edit(editBuilder => {
-				editBuilder.replace(selection, output_str)
+				editBuilder.replace(selection, outputStr);
 				}
 			);
 		}
 	});
 
-	context.subscriptions.push(python2newline);
+	context.subscriptions.push(json2newline);
 
 }
 
