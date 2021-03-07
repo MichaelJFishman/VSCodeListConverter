@@ -1,11 +1,16 @@
 {
 	"name": "list-converter",
+	"publisher":"fish",
 	"displayName": "list_converter",
 	"description": "Converts lists from one format to another",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.53.0"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MichaelJFishman/VSCodeListConverter"
+	  },
 	"categories": [
 		"Other"
 	],
