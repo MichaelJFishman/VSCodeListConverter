@@ -1,6 +1,6 @@
 {
 	"name": "list-converter",
-	"publisher":"fish",
+	"publisher": "fish",
 	"displayName": "list_converter",
 	"description": "Converts lists from one format to another",
 	"version": "0.0.1",
@@ -10,7 +10,7 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/MichaelJFishman/VSCodeListConverter"
-	  },
+	},
 	"categories": [
 		"Other"
 	],
@@ -23,11 +23,11 @@
 		"commands": [
 			{
 				"command": "list-converter.newline2json",
-				"title": "NSV to JSON"
+				"title": "list-converter: NSV to JSON"
 			},
 			{
 				"command": "list-converter.json2newline",
-				"title": "JSON to NSV"
+				"title": "list-converter: JSON to NSV"
 			}
 		]
 	},
