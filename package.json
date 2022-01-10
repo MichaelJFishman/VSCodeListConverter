@@ -3,7 +3,7 @@
 	"publisher": "FishmanAI",
 	"displayName": "list_converter",
 	"description": "Converts lists from one format to another",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"engines": {
 		"vscode": "^1.53.0"
 	},
